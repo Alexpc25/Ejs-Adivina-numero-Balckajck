@@ -1,6 +1,6 @@
-# Ej blackajck que está por terminar (elej a divan umero está abajo)
+# Ej blackajck que está por terminar (el ej a divan umero está abajo)
 
-"import random
+```import random
 
 puntuacion1= 0 
 puntuacion2= 0
@@ -74,13 +74,13 @@ if decision == "Y":
         print("Usted ha empatado con la banca")
 
     else:
-        print("Ha perdido")"
+        print("Ha perdido")```
         
         
 
 #Ej_adivinanumero_bine_hecho
 
-import random
+```import random
 
 # va a escoger un número aleatoriamente, entre 0 y 99
 # a = random.randint(0,99)
@@ -118,5 +118,5 @@ while x!=a :
         x = input("Error, introduzca un número adecuado: ")
 
 
-print("Has adivinado el número!!")
+print("Has adivinado el número!!")```
 
