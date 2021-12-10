@@ -1,4 +1,4 @@
-# Ej_alckajck_que_está_por_terminar_(el_ej_adivanumero_está_abajo)
+# Ej blackajck que está por terminar (elej a divan umero está abajo)
 
 "import random
 
@@ -78,9 +78,9 @@ if decision == "Y":
         
         
 
-Ej_adivinanumero_bine_hecho
+#Ej_adivinanumero_bine_hecho
 
-"import random
+import random
 
 # va a escoger un número aleatoriamente, entre 0 y 99
 # a = random.randint(0,99)
@@ -118,4 +118,5 @@ while x!=a :
         x = input("Error, introduzca un número adecuado: ")
 
 
-print("Has adivinado el número!!")"
+print("Has adivinado el número!!")
+
