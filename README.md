@@ -74,11 +74,11 @@ if decision == "Y":
         print("Usted ha empatado con la banca")
 
     else:
-        print("Ha perdido")```
+        print("Ha perdido")``
         
         
 
-#Ej_adivinanumero_bine_hecho
+#Ej adivinanumero bine hecho
 
 ```import random
 
