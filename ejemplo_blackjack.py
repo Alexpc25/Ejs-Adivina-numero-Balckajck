@@ -3,6 +3,40 @@ import random
 puntuacion1= 0 
 puntuacion2= 0
 
+mano1= []
+mano2= []
+
+def gen_baraja(y,nombres_cartas):
+    baraja = []
+    for i in range(y):
+        x= list(nombres_cartas)
+        baraja+=x
+    return baraja
+
+
+
+def saca_carta(y,puntuacion, mano):
+    for i in range(y):
+        x= random.randint(0,len(baraja)-1) 
+        carta = baraja[x]
+        baraja.pop(x)
+        puntuacion += cartas[carta]
+        mano +=  carta
+    return puntuacion 
+
+
+def fin_juego(a,b):
+    print("esta es mi puntación:", b)
+    if (a > b and a <= 21) or (b > 21 and a <= 21):
+        print("Ha ganado la partida!")
+    
+    elif (a == b) or (a > 21 and b >21):
+        print("Usted ha empatado con la banca")
+
+    else:
+        print("Ha perdido")
+    
+
 cartas = { 
     "as" : 11, 
     "2" : 2, 
@@ -19,13 +53,12 @@ cartas = {
     "K" : 10,  
 }
 
+
 #valores de cada carta
 
-baraja = [] 
+baraja = gen_baraja(4,list(cartas.keys()))
 
-while len(baraja) < 52: 
-    x= list(cartas.keys())
-    baraja+=x
+print(baraja)
 
 #generado la baraja
 
@@ -35,44 +68,50 @@ while  respuesta != "Y" and respuesta != "N" :
 
     respuesta= input("La respuesta no es valida: ")
 
-while len(baraja) > 50:
-    x= random.randint(0,len(baraja)-1) 
-    carta = baraja[x]
-    baraja.pop(x)
-    print("Aquí tiene su carta:", carta)
-    puntuacion1 += cartas[carta] 
+puntuacion1 = saca_carta(2,puntuacion1,mano1)
 
-print("Esta es su puntuación actual:", puntuacion1)
+print("Estas son sus cartas:", mano1 , "y esta es su puntuación actual:", puntuacion1)
 
 #hemos generado dos cartas aleatorias y sumado sus valores
 
 print("Ahora jugará la banca") 
 
-while len(baraja) > 48:
-    x= random.randint(0,len(baraja)-1) 
-    carta = baraja[x]
-    baraja.pop(x)
-    puntuacion2 += cartas[carta] 
+puntuacion2 = saca_carta(2,puntuacion2, mano2)
     
-banca= puntuacion2 - cartas[carta]
-print("Esta es mi puntuación:", banca)
+carta1 = mano2[0]
+print("Esta es una de mis cartas:", carta1)
 
-decision = input("Desea plantarse [Y/N]")
+decision = input("Desea plantarse [Y/N]: ")
 while  decision != "Y" and decision != "N" :
 
     decision= input("La respuesta no es valida: ")
 
+if decision == "Y" or puntuacion1 > 21:
+    fin_juego(puntuacion1,puntuacion2)
 
-if decision == "Y":
-    print("esta es mi puntiación:", puntuacion2)
-    if (puntuacion1 > puntuacion2 and puntuacion1 <= 21) or (puntuacion2 > 21 and puntuacion1 <= 21):
-        print("Ha ganado la partida!")
-    
-    elif puntuacion1 == puntuacion2:
-        print("Usted ha empatado con la banca")
+else: 
+    print("Le repartire otra carta")
 
-    else:
-        print("Ha perdido")
+    puntuacion1 = saca_carta(1,puntuacion1,mano1)
+    print("Estas son sus cartas:", mano1 , "y esta es su puntuación actual:", puntuacion1)
+
+    if puntuacion2 < 17:
+        puntuacion2 = saca_carta(2,puntuacion2, mano2)
+        
+    fin_juego(puntuacion1,puntuacion2)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
